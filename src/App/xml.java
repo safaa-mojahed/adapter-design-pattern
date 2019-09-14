@@ -8,6 +8,7 @@ and I made some changes to the code.
 package App;
 import java.io.*;
 
+import org.json.JSONException;
 import org.xml.sax.*;
 import javax.xml.parsers.*;
 import javax.xml.transform.*;
@@ -20,9 +21,11 @@ public class xml {
     StreamResult result;
     TransformerHandler transformer;
 
-    public static void main(String args[]) {
+    public static void main(String args[]) throws JSONException {
         //call the  convert function to convert the txt file to xml file.
         new xml().convert();
+        Json json=new Json();
+        new Adapter(json).convertXmlTOJson();
     }
 
     public void convert() {
